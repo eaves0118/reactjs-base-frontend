@@ -1,7 +1,7 @@
 import React from "react";
-
+import Input from "@components/Input/Input";
 const HomePage = () => {
-  return <div>this is home page</div>;
+  return <div>ok</div>;
 };
 
 export default HomePage;
