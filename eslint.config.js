@@ -32,6 +32,7 @@ export default defineConfig([
       "no-var": "error",
       "no-console": "error",
       "no-unused-vars": ["error", { varsIgnorePattern: "^[A-Z_]" }],
+      "react-refresh/only-export-components": "off",
     },
   },
 ]);
