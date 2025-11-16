@@ -6,7 +6,7 @@ import { FaGoogle } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
-const Signin = () => {
+const AuthForm = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const changeForm = () => {
     setIsSignUp(!isSignUp);
@@ -66,4 +66,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default AuthForm;

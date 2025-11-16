@@ -3,7 +3,7 @@ import ClientLayout from "@pages/Layouts/ClientLayout/ClientLayout";
 import AdminLayout from "@pages/Layouts/AdminLayout/AdminLayout";
 import HomePage from "@pages/Client/HomePage/HomePage";
 import Dashboard from "@pages/Admin/Dashboard/Dashboard";
-import Signin from "@pages/Admin/Signin/Signin";
+import AuthForm from "@pages/Admin/AuthForm/AuthForm";
 
 const routes = [
   {
@@ -24,9 +24,9 @@ const routes = [
   },
 
   {
-    path: "/admin/sign-in",
+    path: "/admin/auth",
     layout: AdminLayout, // auth không cần layout
-    children: [{ path: "", element: Signin }],
+    children: [{ path: "", element: AuthForm }],
   },
 ];
 
