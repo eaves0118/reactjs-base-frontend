@@ -3,6 +3,7 @@ import ClientLayout from "@pages/Layouts/ClientLayout/ClientLayout";
 import AdminLayout from "@pages/Layouts/AdminLayout/AdminLayout";
 import HomePage from "@pages/Client/HomePage/HomePage";
 import Dashboard from "@pages/Admin/Dashboard/Dashboard";
+import Signin from "@pages/Admin/Signin/Signin";
 
 const routes = [
   {
@@ -20,6 +21,12 @@ const routes = [
       { path: "", element: Dashboard },
       // thêm các page admin khác ở đây
     ],
+  },
+
+  {
+    path: "/admin/sign-in",
+    layout: AdminLayout, // auth không cần layout
+    children: [{ path: "", element: Signin }],
   },
 ];
 

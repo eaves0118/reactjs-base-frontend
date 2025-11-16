@@ -9,14 +9,22 @@ function App() {
         <Routes>
           {routes.map((i, index) => {
             const Layout = i.layout;
-            return (
-              <Route key={index} path={i.path} element={<Layout />}>
-                {i.children?.map((child) => {
-                  const Component = child.element;
-                  return <Route key={child.path} path={child.path} element={<Component />} />;
-                })}
-              </Route>
-            );
+            if (Layout) {
+              return (
+                <Route key={index} path={i.path} element={<Layout />}>
+                  {i.children?.map((child) => {
+                    const Component = child.element;
+                    return <Route key={child.path} path={child.path} element={<Component />} />;
+                  })}
+                </Route>
+              );
+            }
+            return i.children?.map((child) => {
+              const Component = child.element;
+              return (
+                <Route key={child.path} path={`${i.path}/${child.path}`} element={<Component />} />
+              );
+            });
           })}
         </Routes>
       </BrowserRouter>
