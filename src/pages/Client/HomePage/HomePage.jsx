@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
-import Input from "@components/Input/Input";
-import { ResizeContext } from "../../../contexts/ResizeProvider";
+import React from "react";
+
 const HomePage = () => {
-  const { isMobile } = useContext(ResizeContext);
-  return <div>{isMobile ? <div>is Mobile</div> : <div>is Desktop</div>}</div>;
+  return <h1>This is Home Page</h1>;
 };
 
 export default HomePage;

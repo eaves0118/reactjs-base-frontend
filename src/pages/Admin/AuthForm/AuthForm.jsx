@@ -11,6 +11,7 @@ const AuthForm = () => {
   const changeForm = () => {
     setIsSignUp(!isSignUp);
   };
+
   return (
     <div className={styles.auth__container}>
       <div className={`${styles.auth__wrapper} ${isSignUp ? styles.signupActive : ""}`}>
