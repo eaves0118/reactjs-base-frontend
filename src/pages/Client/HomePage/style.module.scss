@@ -1,0 +1,9 @@
+@import "@styles/_variables.scss";
+@import "@styles/_mixins.scss";
+
+.test {
+  font-size: $font-size-xxl;
+  @include respond("mobile") {
+    font-size: $font-size-xxl-mobile;
+  }
+}

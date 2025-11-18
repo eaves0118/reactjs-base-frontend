@@ -3,8 +3,8 @@ import ClientLayout from "@pages/Layouts/ClientLayout/ClientLayout";
 import AdminLayout from "@pages/Layouts/AdminLayout/AdminLayout";
 import HomePage from "@pages/Client/HomePage/HomePage";
 import Dashboard from "@pages/Admin/Dashboard/Dashboard";
-import AuthForm from "@pages/Admin/AuthForm/AuthForm";
-
+import Login from "@pages/Auth/Login/Login";
+import Register from "@pages/Auth/Register/Register";
 const routes = [
   {
     path: "/",
@@ -24,9 +24,14 @@ const routes = [
   },
 
   {
-    path: "/admin/auth",
-    layout: AdminLayout, // auth không cần layout
-    children: [{ path: "", element: AuthForm }],
+    path: "/login",
+    layout: null, // auth không cần layout
+    children: [{ path: "", element: Login }],
+  },
+  {
+    path: "/register",
+    layout: null, // auth không cần layout
+    children: [{ path: "", element: Register }],
   },
 ];
 
