@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "../style.module.scss";
 import Illustration from "@images/draw.png";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
@@ -18,7 +19,7 @@ const Register = () => {
             <h3 className="m-0">Sign up with</h3>
 
             <div className={styles.auth__social_list}>
-              <div className={`shadow-lg ${styles.auth__social_item}`}>
+              <div className={styles.auth__social_item}>
                 <FaFacebookF />
               </div>
               <div className={styles.auth__social_item}>
@@ -45,7 +46,9 @@ const Register = () => {
 
           <div className={styles.auth__register}>
             <span>Already have an account?</span>
-            <span className={styles.auth__register_link}>Login</span>
+            <Link to="/login" className={styles.auth__register_link}>
+              Login
+            </Link>
           </div>
         </form>
       </div>
