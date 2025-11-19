@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
     return roles;
   };
   const signOut = async () => {
-    setUser({ name: "", mail: "" });
+    setUser(null);
     setAccessToken(null);
     setRefreshToken(null);
     localStorage.removeItem("accessToken");
