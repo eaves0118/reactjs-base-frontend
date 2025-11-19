@@ -1,32 +1,18 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useRoutes } from "react-router-dom";
 import routes from "./routes/routes";
 import { AuthProvider } from "./contexts/AuthProvider";
+
+function AppRoutes() {
+  const element = useRoutes(routes); // useRoutes tự động map nested routes
+  return element;
+}
+
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <Routes>
-          {routes.map((i, index) => {
-            const Layout = i.layout;
-            if (Layout) {
-              return (
-                <Route key={index} path={i.path} element={<Layout />}>
-                  {i.children?.map((child) => {
-                    const Component = child.element;
-                    return <Route key={child.path} path={child.path} element={<Component />} />;
-                  })}
-                </Route>
-              );
-            }
-            return i.children?.map((child) => {
-              const Component = child.element;
-              return (
-                <Route key={child.path} path={`${i.path}/${child.path}`} element={<Component />} />
-              );
-            });
-          })}
-        </Routes>
+        <AppRoutes />
       </BrowserRouter>
     </AuthProvider>
   );

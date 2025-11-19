@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "../style.module.scss";
 import Illustration from "@images/draw.png";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
@@ -8,6 +8,7 @@ import Button from "@components/Button/Button";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Login = () => {
+  const navigate = useNavigate();
   const { signIn } = useContext(AuthContext);
   const [account, setAccount] = useState({
     email: "",
@@ -22,7 +23,12 @@ const Login = () => {
   };
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    await signIn(account);
+    const roles = await signIn(account);
+    if (roles.includes("admin")) {
+      navigate("/admin");
+    } else {
+      navigate("/");
+    }
   };
   return (
     <div className={styles.auth}>

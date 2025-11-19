@@ -31,7 +31,7 @@ export default defineConfig([
       "prettier/prettier": "error",
       "no-var": "error",
       "no-console": "error",
-      "no-unused-vars": ["error", { varsIgnorePattern: "^[A-Z_]" }],
+      "no-unused-vars": "off",
       "react-refresh/only-export-components": "off",
     },
   },

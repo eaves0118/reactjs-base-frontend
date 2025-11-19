@@ -1,37 +1,37 @@
-// routes/routes.jsx
 import ClientLayout from "@pages/Layouts/ClientLayout/ClientLayout";
 import AdminLayout from "@pages/Layouts/AdminLayout/AdminLayout";
 import HomePage from "@pages/Client/HomePage/HomePage";
 import Dashboard from "@pages/Admin/Dashboard/Dashboard";
+import User from "@pages/Admin/User/User";
 import Login from "@pages/Auth/Login/Login";
 import Register from "@pages/Auth/Register/Register";
+import PrivateRoutes from "./PrivateRoutes";
+
 const routes = [
   {
     path: "/",
-    layout: ClientLayout,
-    children: [
-      { path: "", element: HomePage }, // index route
-      // thêm các page client khác ở đây
-    ],
+    element: <ClientLayout />,
+    children: [{ path: "", element: <HomePage /> }],
   },
   {
     path: "/admin",
-    layout: AdminLayout,
+    element: (
+      <PrivateRoutes requiredRole="admin">
+        <AdminLayout />
+      </PrivateRoutes>
+    ),
     children: [
-      { path: "", element: Dashboard },
-      // thêm các page admin khác ở đây
+      { path: "", element: <Dashboard /> },
+      { path: "user", element: <User /> },
     ],
   },
-
   {
     path: "/login",
-    layout: null, // auth không cần layout
-    children: [{ path: "", element: Login }],
+    element: <Login />,
   },
   {
     path: "/register",
-    layout: null, // auth không cần layout
-    children: [{ path: "", element: Register }],
+    element: <Register />,
   },
 ];
 
